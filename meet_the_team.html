@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team | NeurAeon Technologies</title>
+    <style>
+        :root {
+            --primary: #008080; 
+            --dark: #1a1a1a;
+            --light-bg: #f9fafb;
+            --text: #374151;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: white;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        /* --- TEAM SECTION --- */
+        .team-section {
+            padding: 60px 20px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 40px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .team-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .team-card.bottom-center {
+            grid-column: 1 / span 2;
+            justify-self: center;
+            width: calc(50% - 15px);
+        }
+
+        .team-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary);
+        }
+
+        .team-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .role {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 5%; flex-direction: column; gap: 1rem; }
+            .team-grid { grid-template-columns: 1fr; }
+            .team-card.bottom-center { grid-column: auto; width: 100%; }
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="meet_the_team.html" class="active">Meet the Team</a></li>
+        </ul>
+    </nav>
+
+    <main class="team-section">
+        <div class="container">
+            <h1>The Minds Behind NeurAeon</h1>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="jordan_headshot.jpg" alt="Team Member">
+                    <h3>Jordan Schleicher</h3>
+                    <span class="role">Founder & Owner</span>
+                    <p class="bio">Insert bio here.</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="brennan_headshot.jpg" alt="Team Member">
+                    <h3>Brennan Waters</h3>
+                    <span class="role">Head of Technology</span>
+                    <p class="bio">Insert bio here.</p>
+                </div>
+
+                <div class="team-card bottom-center">
+                    <img src="matthew_headshot.jpg" alt="Team Member">
+                    <h3>Matthew Dennis</h3>
+                    <span class="role">Head of Public Relations</span>
+                    <p class="bio">Insert bio here.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 NeurAeon Technologies. All rights reserved.
+    </footer>
+
+</body>
+</html>
