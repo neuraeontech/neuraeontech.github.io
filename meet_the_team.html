@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet the Team | NeurAeon Technologies</title>
+    <title>NeurAeon Technologies | Home</title>
     <style>
         :root {
-            --primary: #008080; 
+            --primary: #008080;
             --dark: #1a1a1a;
             --light-bg: #f9fafb;
             --text: #374151;
@@ -20,14 +21,17 @@
             background-color: white;
         }
 
-        /* --- NAVIGATION --- */
+        /* Navigation Base */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 10%;
             border-bottom: 1px solid #eee;
-            background: white;
+            background-color: white;
+            position: relative;
+            /* Essential for dropdown positioning */
+            z-index: 1000;
         }
 
         .logo img {
@@ -35,126 +39,140 @@
             width: auto;
         }
 
-        nav ul {
+        .nav-links {
             list-style: none;
             display: flex;
             gap: 2rem;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover, nav a.active {
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        /* --- TEAM SECTION --- */
-        .team-section {
-            padding: 60px 20px;
+        /* --- NEW DROPDOWN CSS (MISSING PART) --- */
+
+        /* 1. Makes the 'About' link a container for the menu */
+        .dropdown {
+            position: relative;
+        }
+
+        /* 2. Hides the menu by default and styles the box */
+        .dropdown-content {
+            display: none;
+            /* This hides the links initially */
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            top: 100%;
+            /* Places it directly under 'About' */
+            left: 0;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        /* 3. Forces the internal links to stack vertically */
+        .dropdown-content a {
+            color: var(--text);
+            padding: 12px 20px;
+            display: block;
+            /* Stacks links top-to-bottom */
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
             background-color: var(--light-bg);
+            color: var(--primary);
+        }
+
+        /* 4. The Magic: Shows the menu only when hovering over the parent <li> */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Optional: Adds a small arrow next to 'About' */
+        .dropdown>a::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        /* --- END DROPDOWN CSS --- */
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
             text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         h1 {
             font-size: 2.5rem;
             color: var(--dark);
-            margin-bottom: 40px;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .team-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .team-card.bottom-center {
-            grid-column: 1 / span 2;
-            justify-self: center;
-            width: calc(50% - 15px);
-        }
-
-        .team-card img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--primary);
-        }
-
-        .team-card h3 {
-            margin: 10px 0 5px 0;
-            font-size: 1.4rem;
-            color: var(--dark);
-        }
-
-        .role {
-            display: block;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .bio {
-            font-size: 0.95rem;
-            color: #6b7280;
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 1rem 5%; flex-direction: column; gap: 1rem; }
-            .team-grid { grid-template-columns: 1fr; }
-            .team-card.bottom-center { grid-column: auto; width: 100%; }
+        .description {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         footer {
-            padding: 40px;
+            margin-top: 100px;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
             text-align: center;
             font-size: 0.9rem;
             color: #9ca3af;
         }
     </style>
 </head>
+
 <body>
 
     <nav>
         <div class="logo">
             <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
         </div>
-        <ul>
+        <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="meet_the_team.html" class="active">Meet the Team</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-
+            <li class="dropdown">
+                <a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="about.html">Our Mission</a>
+                    <a href="technology.html">Technology</a>
+                    <a href="research.html">Research</a>
+                </div>
+            </li>
+            <li><a href="meet_the_team.html">Meet The Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <main class="team-section">
         <div class="container">
             <h1>The Minds Behind NeurAeon</h1>
-            
+
             <div class="team-grid">
                 <div class="team-card">
                     <img src="jordan_headshot.jpg" alt="Team Member">
@@ -185,4 +203,5 @@
     </footer>
 
 </body>
+
 </html>

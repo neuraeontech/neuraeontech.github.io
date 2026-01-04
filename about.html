@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,12 @@
             --primary: #008080;
             --dark: #0f172a;
             --bg-light: #f8fafc;
-            --text-main: #334155;
+            --text-main: #334151;
             --text-muted: #64748b;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.7;
@@ -22,30 +23,34 @@
             background-color: #ffffff;
         }
 
-        /* --- Navigation --- */
+        /* --- Fixed Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem 10%;
+            padding: 1rem 10%;
             border-bottom: 1px solid #f1f5f9;
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo img { height: 42px; width: auto; }
+        .logo img {
+            height: 42px;
+            width: auto;
+        }
 
-        nav ul {
+        .nav-links {
             list-style: none;
             display: flex;
             gap: 2.5rem;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
@@ -53,45 +58,76 @@
             transition: color 0.2s;
         }
 
-        nav a:hover, nav a.active { color: var(--primary); }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
 
-        /* --- Page Layout --- */
+        /* --- Dropdown Styling --- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+            border: 1px solid #f1f5f9;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-content a {
+            padding: 0.75rem 1.25rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown>a::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        /* --- Organized Layout --- */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         header.hero {
-            padding: 100px 0 60px;
+            padding: 80px 0 40px;
             text-align: center;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--dark);
-            letter-spacing: -0.025em;
             margin-bottom: 1.5rem;
-            line-height: 1.1;
+            letter-spacing: -0.025em;
         }
 
         .lead-text {
-            font-size: 1.25rem;
-            color: var(--text-main);
+            font-size: 1.15rem;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        /* --- Tech Cards --- */
-        .tech-section {
-            padding-bottom: 80px;
-        }
-
+        /* --- Organized Cards --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
+            margin: 3rem 0;
         }
 
         .card {
@@ -99,37 +135,34 @@
             padding: 2.5rem;
             border-radius: 16px;
             border: 1px solid #f1f5f9;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card h2 {
             margin-top: 0;
             color: var(--dark);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             border-bottom: 2px solid var(--primary);
             display: inline-block;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         /* --- Progress Bar --- */
         .feasibility-stat {
-            margin-top: 1.5rem;
-            padding: 1rem;
             background: white;
+            padding: 1rem;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
+            margin-top: 1rem;
         }
 
         .bar-bg {
             background: #e2e8f0;
-            height: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
             overflow: hidden;
         }
 
@@ -141,42 +174,52 @@
 
         .stat-text {
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--primary);
             text-transform: uppercase;
         }
 
-        /* --- Footer Section --- */
         .closing {
-            padding: 80px 0;
             text-align: center;
-            background-color: var(--bg-light);
-            margin-top: 40px;
+            padding: 60px 0;
+            border-top: 1px solid #f1f5f9;
         }
 
         footer {
             padding: 3rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.875rem;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.25rem; }
-            nav ul { display: none; } /* Consider a mobile menu later */
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav>
         <div class="logo">
             <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
         </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="active">About</a>
+                <div class="dropdown-content">
+                    <a href="about.html">Our Mission</a>
+                    <a href="item_one.html">Item 1</a>
+                    <a href="item_two.html">Item 2</a>
+                </div>
+            </li>
             <li><a href="meet_the_team.html">Meet The Team</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -186,30 +229,41 @@
         <div class="container">
             <h1>The Next Epoch of Intelligence</h1>
             <p class="lead-text">
-                NeurAeon Technologies is a neurotechnology company built independently over the past three years. We pioneer <strong>safe, pharmaceutical-grade neural enhancement systems</strong> that amplify cognition while preserving the user’s natural sense of self and perceptual continuity.
+                NeurAeon Technologies is a neurotechnology company built independently over the past three years. We
+                pioneer <strong>safe, pharmaceutical-grade neural enhancement systems</strong> that amplify cognition
+                while preserving the user’s natural sense of self and perceptual continuity.
             </p>
         </div>
     </header>
 
-    <main class="tech-section container">
+    <main class="container">
         <div class="grid">
             <section class="card">
-                <h2>NRRE-1 Engine</h2>
-                <p>The <strong>NeurAeon Recursive Refinement Engine (NRRE-1)</strong> is a proprietary platform-level IP system. It enhances neuroplasticity, synaptic efficiency, and higher-order pattern recognition.</p>
-                <p>By bypassing traditional decade-long cycles, NRRE-1 scales entire classes of enhancement technologies with dramatically lower time, cost, and risk.</p>
+                <div>
+                    <h2>NRRE-1 Engine</h2>
+                    <p>The <strong>NeurAeon Recursive Refinement Engine (NRRE-1)</strong> is a proprietary
+                        platform-level IP system. It enhances neuroplasticity, synaptic efficiency, and higher-order
+                        pattern recognition.</p>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+                    Scales entire classes of enhancement technologies with dramatically lower time and risk.
+                </p>
             </section>
 
             <section class="card">
-                <h2>APS-9 Architecture</h2>
-                <p>Powered by the <strong>APS-9 prompt architecture</strong>, a systemic-recalibration engine that enforces GMP tolerances and biophysical limits globally.</p>
-                
-                <div class="feasibility-stat">
-                    <span class="stat-text">92% Production Feasibility</span>
-                    <div class="bar-bg"><div class="bar-fill"></div></div>
+                <div>
+                    <h2>APS-9 Architecture</h2>
+                    <p>Powered by the <strong>APS-9 prompt architecture</strong>, a systemic-recalibration engine that
+                        enforces GMP tolerances and biophysical limits globally.</p>
+                    <div class="feasibility-stat">
+                        <span class="stat-text">92% Production Feasibility</span>
+                        <div class="bar-bg">
+                            <div class="bar-fill"></div>
+                        </div>
+                    </div>
                 </div>
-                
-                <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-muted);">
-                    Generates laboratory-ready technical dossiers, including synthesis protocols and validation matrices.
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+                    Generates laboratory-ready technical dossiers and synthesis protocols.
                 </p>
             </section>
         </div>
@@ -217,8 +271,10 @@
 
     <section class="closing">
         <div class="container">
-            <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
-                By combining biotechnology, artificial intelligence, and advanced neuroscience, we are building innovative platforms—such as <strong>Neuralyte</strong> and <strong>AquaSil Φ-Matrix</strong>—designed to help unlock human potential responsibly and effectively.
+            <p style="max-width: 750px; margin: 0 auto; font-size: 1.1rem;">
+                By combining biotechnology, artificial intelligence, and advanced neuroscience, we are building
+                innovative platforms—such as <strong>Neuralyte</strong> and <strong>AquaSil Φ-Matrix</strong>—designed
+                to help unlock human potential responsibly and effectively.
             </p>
         </div>
     </section>
@@ -228,4 +284,5 @@
     </footer>
 
 </body>
+
 </html>

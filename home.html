@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,38 +21,95 @@
             background-color: white;
         }
 
-        /* Navigation */
+        /* Navigation Base */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 10%;
             border-bottom: 1px solid #eee;
+            background-color: white;
+            position: relative;
+            /* Essential for dropdown positioning */
+            z-index: 1000;
         }
 
         .logo img {
-            height: 40px; /* Consistent height */
+            height: 40px;
             width: auto;
         }
 
-        nav ul {
+        .nav-links {
             list-style: none;
             display: flex;
             gap: 2rem;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: var(--primary);
         }
+
+        /* --- NEW DROPDOWN CSS (MISSING PART) --- */
+
+        /* 1. Makes the 'About' link a container for the menu */
+        .dropdown {
+            position: relative;
+        }
+
+        /* 2. Hides the menu by default and styles the box */
+        .dropdown-content {
+            display: none;
+            /* This hides the links initially */
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            top: 100%;
+            /* Places it directly under 'About' */
+            left: 0;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        /* 3. Forces the internal links to stack vertically */
+        .dropdown-content a {
+            color: var(--text);
+            padding: 12px 20px;
+            display: block;
+            /* Stacks links top-to-bottom */
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-bg);
+            color: var(--primary);
+        }
+
+        /* 4. The Magic: Shows the menu only when hovering over the parent <li> */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Optional: Adds a small arrow next to 'About' */
+        .dropdown>a::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        /* --- END DROPDOWN CSS --- */
 
         /* Hero Section */
         .hero {
@@ -79,7 +137,6 @@
             margin: 0 auto;
         }
 
-        /* Footer */
         footer {
             margin-top: 100px;
             padding: 40px 20px;
@@ -90,18 +147,25 @@
         }
     </style>
 </head>
+
 <body>
 
     <nav>
         <div class="logo">
             <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
         </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-			<li><a href="meet_the_team.html">Meet The Team </a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown">
+                <a href="about.html">About</a>
+                <div class="dropdown-content">
+                    <a href="about.html">Our Mission</a>
+                    <a href="technology.html">Technology</a>
+                    <a href="research.html">Research</a>
+                </div>
+            </li>
+            <li><a href="meet_the_team.html">Meet The Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
@@ -109,14 +173,18 @@
         <div class="container">
             <h1>Unlocking Human Potential</h1>
             <p class="description">
-                NeurAeon Technologies is a next-generation neurotechnology startup focused on improving how the human brain performs. 
-                We develop safe, science-backed cognitive enhancement systems that support focus, memory, and mental clarity.
+                NeurAeon Technologies is a next-generation neurotechnology startup focused on improving how the human
+                brain performs.
+                We develop safe, science-backed cognitive enhancement systems that support focus, memory, and mental
+                clarity.
             </p>
         </div>
     </main>
 
     <section class="container" style="padding: 40px 20px;">
-        <p>By combining biotechnology, artificial intelligence, and advanced neuroscience, we are building innovative platforms and products—such as <strong>Neuralyte</strong> and <strong>Omnilyte</strong>—designed to help unlock human potential responsibly and effectively.</p>
+        <p>By combining biotechnology, artificial intelligence, and advanced neuroscience, we are building innovative
+            platforms and products—such as <strong>Neuralyte</strong> and <strong>Omnilyte</strong>—designed to help
+            unlock human potential responsibly and effectively.</p>
     </section>
 
     <footer>
@@ -124,4 +192,5 @@
     </footer>
 
 </body>
+
 </html>
