@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeurAeon Technologies | Home</title>
+    <title>Contact Us | NeurAeon Technologies</title>
     <style>
         :root {
             --primary: #008080;
             --dark: #1a1a1a;
             --light-bg: #f9fafb;
             --text: #374151;
+            --input-border: #d1d5db;
         }
 
         body {
@@ -21,7 +22,7 @@
             background-color: white;
         }
 
-        /* Navigation Base */
+        /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -29,8 +30,8 @@
             padding: 1rem 10%;
             border-bottom: 1px solid #eee;
             background-color: white;
-            position: relative;
-            /* Essential for dropdown positioning */
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
@@ -59,36 +60,29 @@
             color: var(--primary);
         }
 
-        /* --- NEW DROPDOWN CSS (MISSING PART) --- */
-
-        /* 1. Makes the 'About' link a container for the menu */
+        /* --- Dropdown Logic --- */
         .dropdown {
             position: relative;
         }
 
-        /* 2. Hides the menu by default and styles the box */
         .dropdown-content {
             display: none;
-            /* This hides the links initially */
             position: absolute;
             background-color: white;
             min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 1;
             top: 100%;
-            /* Places it directly under 'About' */
             left: 0;
             border-radius: 4px;
             border: 1px solid #eee;
             padding: 10px 0;
         }
 
-        /* 3. Forces the internal links to stack vertically */
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
             display: block;
-            /* Stacks links top-to-bottom */
             font-size: 0.9rem;
         }
 
@@ -97,53 +91,130 @@
             color: var(--primary);
         }
 
-        /* 4. The Magic: Shows the menu only when hovering over the parent <li> */
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Optional: Adds a small arrow next to 'About' */
         .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- END DROPDOWN CSS --- */
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 20px;
+        /* --- Contact Layout --- */
+        .contact-header {
+            padding: 60px 20px 20px;
             text-align: center;
             background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
         }
 
-        .container {
-            max-width: 800px;
+        .contact-container {
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
         }
 
         h1 {
             font-size: 2.5rem;
             color: var(--dark);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 10px;
         }
 
-        .description {
-            font-size: 1.2rem;
-            color: #4b5563;
-            max-width: 700px;
-            margin: 0 auto;
+        /* Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        input,
+        textarea {
+            padding: 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Info Styling */
+        .info-card {
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .info-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .info-item p {
+            margin: 0;
+            font-size: 1rem;
         }
 
         footer {
-            margin-top: 100px;
+            margin-top: 60px;
             padding: 40px 20px;
             border-top: 1px solid #eee;
             text-align: center;
             font-size: 0.9rem;
             color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 5%;
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -155,7 +226,7 @@
             <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
         </div>
         <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <a href="about.html">About</a>
                 <div class="dropdown-content">
@@ -201,13 +272,12 @@
             <div class="info-item">
                 <h3>Phone</h3>
                 <p>(816) 647-5512</p>
-
-                <div class="info-item">
-                    <h3>Follow Us</h3>
-                    <p>LinkedIn | Twitter</p>
-                </div>
+            </div>
+            <div class="info-item">
+                <h3>Follow Us</h3>
+                <p>LinkedIn | Twitter</p>
+            </div>
         </aside>
-        <aside><img src="607583747_818353204557356_4758216285830343040_n_1_35.jpg" alt="contact photo"></aside>
     </main>
 
     <footer>
