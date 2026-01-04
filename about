@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeurAeon Technologies | Home</title>
+    <style>
+        :root {
+            --primary: #008080;
+            --dark: #1a1a1a;
+            --light-bg: #f9fafb;
+            --text: #374151;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: white;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo img {
+            height: 40px; /* Consistent height */
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+			<li><a href="meet_the_team.html">Meet The Team </a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    
+    </main>
+
+    <section class="container" style="padding: 40px 20px;">
+        <p>By combining biotechnology, artificial intelligence, and advanced neuroscience, we are building innovative platforms and products—such as <strong>Neuralyte</strong> and <strong>Omnilyte</strong>—designed to help unlock human potential responsibly and effectively.</p>
+    </section>
+
+    <footer>
+        &copy; 2025 NeurAeon Technologies. All rights reserved.
+    </footer>
+
+</body>
+</html>
