@@ -11,6 +11,7 @@
             --dark: #1a1a1a;
             --light-bg: #f9fafb;
             --text: #374151;
+            --text-muted: #64748b;
         }
 
         body {
@@ -21,7 +22,7 @@
             background-color: white;
         }
 
-        /* --- NAVIGATION BASE --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -42,7 +43,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping on small screens */
+            flex-wrap: wrap;
             gap: 2rem;
             margin: 0;
             padding: 0;
@@ -56,17 +57,11 @@
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* --- DROPDOWN LOGIC --- */
-        .dropdown {
-            position: relative;
-        }
+        /* --- DROPDOWN --- */
+        .dropdown { position: relative; }
 
         .dropdown-content {
-            display: none; /* Keeps links hidden until hover */
+            display: none;
             position: absolute;
             background-color: white;
             min-width: 180px;
@@ -80,62 +75,61 @@
         }
 
         .dropdown-content a {
-            color: var(--text);
             padding: 12px 20px;
-            display: block; /* Stacks links vertically */
+            display: block;
             font-size: 0.9rem;
         }
 
-        .dropdown-content a:hover {
-            background-color: var(--light-bg);
-            color: var(--primary);
-        }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* Shows menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Dropdown Arrow */
         .dropdown > a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- MOBILE RESPONSIVE RULES --- */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column; /* Logo on top, menu below */
-                padding: 1rem 5%;
-            }
-
-            .logo {
-                margin-bottom: 1rem;
-            }
-
-            .nav-links {
-                justify-content: center; /* Centers links on mobile */
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .nav-links li {
-                font-size: 0.85rem;
-            }
-
-            /* Adjust dropdown for touch screens */
-            .dropdown-content {
-                position: static; /* Pushes content down instead of floating */
-                box-shadow: none;
-                border: none;
-                background-color: var(--light-bg);
-                width: 100%;
-                text-align: center;
-            }
+        /* --- ABOUT PAGE GRID & CARDS (RESTORED) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
-        /* --- PAGE LAYOUT --- */
+        .card {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* --- PROGRESS BAR --- */
+        .feasibility-stat {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-top: 1rem;
+        }
+
+        .bar-bg { background: #e2e8f0; height: 8px; border-radius: 4px; margin: 8px 0; overflow: hidden; }
+        .bar-fill { background: var(--primary); width: 92%; height: 100%; }
+        .stat-text { font-weight: bold; font-size: 0.8rem; color: var(--primary); text-transform: uppercase; }
+
+        /* --- HERO & CLOSING --- */
         .hero {
             padding: 80px 20px;
             text-align: center;
@@ -143,7 +137,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -151,20 +145,26 @@
             font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
         }
 
-        .description {
-            font-size: 1.2rem;
-            color: #4b5563;
+        .closing {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 1rem 5%; }
+            .nav-links { justify-content: center; width: 100%; margin-top: 1rem; }
+            .grid { grid-template-columns: 1fr; }
+            .dropdown-content { position: static; box-shadow: none; border: none; width: 100%; }
         }
 
         footer {
-            margin-top: 100px;
-            padding: 40px 20px;
-            border-top: 1px solid #eee;
+            padding: 40px;
             text-align: center;
-            font-size: 0.9rem;
+            border-top: 1px solid #eee;
             color: #9ca3af;
         }
     </style>
@@ -182,8 +182,8 @@
                 <a href="about.html" class="active">About</a>
                 <div class="dropdown-content">
                     <a href="about.html">Our Mission</a>
-                    <a href="item_one.html">Item 1</a>
-                    <a href="item_two.html">Item 2</a>
+                    <a href="item_one.html">Technology</a>
+                    <a href="item_two.html">Research</a>
                 </div>
             </li>
             <li><a href="meet_the_team.html">Meet The Team</a></li>
@@ -222,33 +222,4 @@
                     <p>Powered by the <strong>APS-9 prompt architecture</strong>, a systemic-recalibration engine that
                         enforces GMP tolerances and biophysical limits globally.</p>
                     <div class="feasibility-stat">
-                        <span class="stat-text">92% Production Feasibility</span>
-                        <div class="bar-bg">
-                            <div class="bar-fill"></div>
-                        </div>
-                    </div>
-                </div>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
-                    Generates laboratory-ready technical dossiers and synthesis protocols.
-                </p>
-            </section>
-        </div>
-    </main>
-
-    <section class="closing">
-        <div class="container">
-            <p style="max-width: 750px; margin: 0 auto; font-size: 1.1rem;">
-                By combining biotechnology, artificial intelligence, and advanced neuroscience, we are building
-                innovative platforms—such as <strong>Neuralyte</strong> and <strong>AquaSil Φ-Matrix</strong>—designed
-                to help unlock human potential responsibly and effectively.
-            </p>
-        </div>
-    </section>
-
-    <footer>
-        &copy; 2025 NeurAeon Technologies. All rights reserved.
-    </footer>
-
-</body>
-
-</html>
+                        <span class="stat-text">
