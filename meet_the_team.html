@@ -42,7 +42,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping on small screens */
+            flex-wrap: wrap;
             gap: 2rem;
             margin: 0;
             padding: 0;
@@ -66,7 +66,7 @@
         }
 
         .dropdown-content {
-            display: none; /* Keeps links hidden until hover */
+            display: none;
             position: absolute;
             background-color: white;
             min-width: 180px;
@@ -82,7 +82,7 @@
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
-            display: block; /* Stacks links vertically */
+            display: block;
             font-size: 0.9rem;
         }
 
@@ -91,22 +91,94 @@
             color: var(--primary);
         }
 
-        /* Shows menu on hover */
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Dropdown Arrow */
-        .dropdown > a::after {
+        .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
+        /* --- TEAM GRID STYLES (RE-ADDED) --- */
+        .team-section {
+            padding: 60px 20px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 40px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Centering the 3rd person on the bottom row */
+        .team-card.bottom-center {
+            grid-column: 1 / span 2;
+            justify-self: center;
+            width: calc(50% - 15px);
+        }
+
+        .team-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary);
+        }
+
+        .team-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .role {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            color: #6b7280;
+        }
+
         /* --- MOBILE RESPONSIVE RULES --- */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column; /* Logo on top, menu below */
+                flex-direction: column;
                 padding: 1rem 5%;
             }
 
@@ -115,18 +187,22 @@
             }
 
             .nav-links {
-                justify-content: center; /* Centers links on mobile */
+                justify-content: center;
                 gap: 1rem;
                 width: 100%;
             }
 
-            .nav-links li {
-                font-size: 0.85rem;
+            .team-grid {
+                grid-template-columns: 1fr;
             }
 
-            /* Adjust dropdown for touch screens */
+            .team-card.bottom-center {
+                grid-column: auto;
+                width: 100%;
+            }
+
             .dropdown-content {
-                position: static; /* Pushes content down instead of floating */
+                position: static;
                 box-shadow: none;
                 border: none;
                 background-color: var(--light-bg);
@@ -135,32 +211,8 @@
             }
         }
 
-        /* --- PAGE LAYOUT --- */
-        .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .description {
-            font-size: 1.2rem;
-            color: #4b5563;
-        }
-
         footer {
-            margin-top: 100px;
+            margin-top: 60px;
             padding: 40px 20px;
             border-top: 1px solid #eee;
             text-align: center;
@@ -171,7 +223,6 @@
 </head>
 
 <body>
-
     <nav>
         <div class="logo">
             <img src="IMG_8634_1_70.jpeg" alt="NeurAeon Technologies Logo">
@@ -194,7 +245,6 @@
     <main class="team-section">
         <div class="container">
             <h1>The Minds Behind NeurAeon</h1>
-
             <div class="team-grid">
                 <div class="team-card">
                     <img src="jordan_headshot.jpg" alt="Jordan Schleicher">
@@ -226,7 +276,6 @@
     <footer>
         &copy; 2025 NeurAeon Technologies. All rights reserved.
     </footer>
-
 </body>
 
 </html>
