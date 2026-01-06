@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +69,7 @@
             position: absolute;
             background-color: white;
             min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 1;
             top: 100%;
             left: 0;
@@ -93,7 +94,7 @@
             display: block;
         }
 
-        .dropdown > a::after {
+        .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
@@ -119,7 +120,8 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 Columns on top */
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 Columns on top */
             gap: 30px;
             justify-content: center;
         }
@@ -128,7 +130,7 @@
             background: white;
             padding: 40px 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
 
@@ -138,9 +140,9 @@
 
         /* Centering the 3rd person on the bottom row */
         .team-card.bottom-center {
-            grid-column: 1 / span 2; 
+            grid-column: 1 / span 2;
             justify-self: center;
-            width: calc(50% - 15px); 
+            width: calc(50% - 15px);
         }
 
         .team-card img {
@@ -175,11 +177,15 @@
 
         /* Responsive: Stack vertically on mobile */
         @media (max-width: 768px) {
-            .team-grid { grid-template-columns: 1fr; }
-            .team-card.bottom-center { 
-                grid-column: auto; 
-                width: 100%; 
+            .team-grid {
+                grid-template-columns: 1fr;
             }
+
+            .team-card.bottom-center {
+                grid-column: auto;
+                width: 100%;
+            }
+
             nav {
                 padding: 1rem 5%;
                 flex-direction: column;
@@ -196,6 +202,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <nav>
@@ -208,8 +215,8 @@
                 <a href="about.html">About</a>
                 <div class="dropdown-content">
                     <a href="about.html">Our Mission</a>
-                    <a href="technology.html">Technology</a>
-                    <a href="research.html">Research</a>
+                    <a href="item_one.html">Technology</a>
+                    <a href="item_two.html">Research</a>
                 </div>
             </li>
             <li><a href="meet_the_team.html">Meet The Team</a></li>
@@ -220,27 +227,30 @@
     <main class="team-section">
         <div class="container">
             <h1>The Minds Behind NeurAeon</h1>
-            
+
             <div class="team-grid">
                 <div class="team-card">
                     <img src="jordan_headshot.jpg" alt="Jordan Schleicher">
                     <h3>Jordan Schleicher</h3>
                     <span class="role">Founder & Owner</span>
-                    <p class="bio">Jordan leads the vision for NeurAeon, focusing on the intersection of neurobiology and emerging technology.</p>
+                    <p class="bio">Jordan leads the vision for NeurAeon, focusing on the intersection of neurobiology
+                        and emerging technology.</p>
                 </div>
 
                 <div class="team-card">
                     <img src="brennan_headshot.jpg" alt="Brennan Waters">
                     <h3>Brennan Waters</h3>
                     <span class="role">Head of Technology</span>
-                    <p class="bio">Brennan oversees technical architecture and the implementation of our recursive refinement engines.</p>
+                    <p class="bio">Brennan oversees technical architecture and the implementation of our recursive
+                        refinement engines.</p>
                 </div>
 
                 <div class="team-card bottom-center">
                     <img src="matthew_headshot.jpg" alt="Matthew Dennis">
                     <h3>Matthew Dennis</h3>
                     <span class="role">Head of Public Relations</span>
-                    <p class="bio">Matthew manages community outreach and communication, ensuring our mission is clear and accessible.</p>
+                    <p class="bio">Matthew manages community outreach and communication, ensuring our mission is clear
+                        and accessible.</p>
                 </div>
             </div>
         </div>
@@ -251,4 +261,5 @@
     </footer>
 
 </body>
+
 </html>
