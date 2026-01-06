@@ -21,7 +21,7 @@
             background-color: white;
         }
 
-        /* --- Navigation --- */
+        /* --- NAVIGATION BASE --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -35,17 +35,18 @@
         }
 
         .logo img {
-            height: 40px;
+            height: 45px;
             width: auto;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
             gap: 2rem;
             margin: 0;
             padding: 0;
-            align-items: center;
+            justify-content: flex-end;
         }
 
         .nav-links a {
@@ -59,18 +60,18 @@
             color: var(--primary);
         }
 
-        /* --- Dropdown Logic --- */
+        /* --- DROPDOWN LOGIC --- */
         .dropdown {
             position: relative;
         }
 
         .dropdown-content {
-            display: none;
+            display: none; /* Keeps links hidden until hover */
             position: absolute;
             background-color: white;
             min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-            z-index: 1;
+            z-index: 1001;
             top: 100%;
             left: 0;
             border-radius: 4px;
@@ -81,7 +82,7 @@
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
-            display: block;
+            display: block; /* Stacks links vertically */
             font-size: 0.9rem;
         }
 
@@ -90,115 +91,81 @@
             color: var(--primary);
         }
 
+        /* Shows menu on hover */
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown>a::after {
+        /* Dropdown Arrow */
+        .dropdown > a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- Team Page Specific Styles --- */
-        .team-section {
-            padding: 60px 20px;
-            background-color: var(--light-bg);
+        /* --- MOBILE RESPONSIVE RULES --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Logo on top, menu below */
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .nav-links {
+                justify-content: center; /* Centers links on mobile */
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .nav-links li {
+                font-size: 0.85rem;
+            }
+
+            /* Adjust dropdown for touch screens */
+            .dropdown-content {
+                position: static; /* Pushes content down instead of floating */
+                box-shadow: none;
+                border: none;
+                background-color: var(--light-bg);
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* --- PAGE LAYOUT --- */
+        .hero {
+            padding: 80px 20px;
             text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--dark);
-            margin-bottom: 40px;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /* 2 Columns on top */
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .team-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Centering the 3rd person on the bottom row */
-        .team-card.bottom-center {
-            grid-column: 1 / span 2;
-            justify-self: center;
-            width: calc(50% - 15px);
-        }
-
-        .team-card img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--primary);
-        }
-
-        .team-card h3 {
-            margin: 10px 0 5px 0;
-            font-size: 1.4rem;
-            color: var(--dark);
-        }
-
-        .role {
-            display: block;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .bio {
-            font-size: 0.95rem;
-            color: #6b7280;
-        }
-
-        /* Responsive: Stack vertically on mobile */
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .team-card.bottom-center {
-                grid-column: auto;
-                width: 100%;
-            }
-
-            nav {
-                padding: 1rem 5%;
-                flex-direction: column;
-                gap: 1rem;
-            }
+        .description {
+            font-size: 1.2rem;
+            color: #4b5563;
         }
 
         footer {
-            padding: 40px;
+            margin-top: 100px;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
             text-align: center;
             font-size: 0.9rem;
             color: #9ca3af;
-            background: white;
         }
     </style>
 </head>

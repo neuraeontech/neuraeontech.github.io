@@ -8,198 +8,164 @@
     <style>
         :root {
             --primary: #008080;
-            --dark: #0f172a;
-            --bg-light: #f8fafc;
-            --text-main: #334151;
-            --text-muted: #64748b;
+            --dark: #1a1a1a;
+            --light-bg: #f9fafb;
+            --text: #374151;
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            color: var(--text-main);
-            background-color: #ffffff;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: white;
         }
 
-        /* --- Fixed Navigation --- */
+        /* --- NAVIGATION BASE --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 10%;
-            border-bottom: 1px solid #f1f5f9;
-            background: white;
+            border-bottom: 1px solid #eee;
+            background-color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .logo img {
-            height: 42px;
+            height: 45px;
             width: auto;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 2.5rem;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
+            gap: 2rem;
             margin: 0;
             padding: 0;
-            align-items: center;
+            justify-content: flex-end;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        /* --- Dropdown Styling --- */
+        /* --- DROPDOWN LOGIC --- */
         .dropdown {
             position: relative;
         }
 
         .dropdown-content {
-            display: none;
+            display: none; /* Keeps links hidden until hover */
             position: absolute;
-            background: white;
+            background-color: white;
             min-width: 180px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
             top: 100%;
             left: 0;
-            border: 1px solid #f1f5f9;
-            padding: 0.5rem 0;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            padding: 10px 0;
         }
 
         .dropdown-content a {
-            padding: 0.75rem 1.25rem;
-            display: block;
+            color: var(--text);
+            padding: 12px 20px;
+            display: block; /* Stacks links vertically */
             font-size: 0.9rem;
         }
 
+        .dropdown-content a:hover {
+            background-color: var(--light-bg);
+            color: var(--primary);
+        }
+
+        /* Shows menu on hover */
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        .dropdown>a::after {
+        /* Dropdown Arrow */
+        .dropdown > a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- Organized Layout --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        /* --- MOBILE RESPONSIVE RULES --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Logo on top, menu below */
+                padding: 1rem 5%;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .nav-links {
+                justify-content: center; /* Centers links on mobile */
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .nav-links li {
+                font-size: 0.85rem;
+            }
+
+            /* Adjust dropdown for touch screens */
+            .dropdown-content {
+                position: static; /* Pushes content down instead of floating */
+                box-shadow: none;
+                border: none;
+                background-color: var(--light-bg);
+                width: 100%;
+                text-align: center;
+            }
         }
 
-        header.hero {
-            padding: 80px 0 40px;
+        /* --- PAGE LAYOUT --- */
+        .hero {
+            padding: 80px 20px;
             text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         h1 {
             font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.5px;
         }
 
-        .lead-text {
-            font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* --- Organized Cards --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid #f1f5f9;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: var(--dark);
-            font-size: 1.4rem;
-            border-bottom: 2px solid var(--primary);
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        /* --- Progress Bar --- */
-        .feasibility-stat {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            margin-top: 1rem;
-        }
-
-        .bar-bg {
-            background: #e2e8f0;
-            height: 8px;
-            border-radius: 4px;
-            margin: 8px 0;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            background: var(--primary);
-            width: 92%;
-            height: 100%;
-        }
-
-        .stat-text {
-            font-weight: bold;
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-        }
-
-        .closing {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid #f1f5f9;
+        .description {
+            font-size: 1.2rem;
+            color: #4b5563;
         }
 
         footer {
-            padding: 3rem;
+            margin-top: 100px;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                padding: 1rem 5%;
-            }
+            font-size: 0.9rem;
+            color: #9ca3af;
         }
     </style>
 </head>

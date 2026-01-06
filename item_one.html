@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeurAeon Technologies | Home</title>
-    <style>
+        <style>
         :root {
             --primary: #008080;
             --dark: #1a1a1a;
@@ -21,7 +21,7 @@
             background-color: white;
         }
 
-        /* Navigation Base */
+        /* --- NAVIGATION BASE --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -29,23 +29,24 @@
             padding: 1rem 10%;
             border-bottom: 1px solid #eee;
             background-color: white;
-            position: relative;
-            /* Essential for dropdown positioning */
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
         .logo img {
-            height: 40px;
+            height: 45px;
             width: auto;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
             gap: 2rem;
             margin: 0;
             padding: 0;
-            align-items: center;
+            justify-content: flex-end;
         }
 
         .nav-links a {
@@ -59,36 +60,29 @@
             color: var(--primary);
         }
 
-        /* --- NEW DROPDOWN CSS (MISSING PART) --- */
-
-        /* 1. Makes the 'About' link a container for the menu */
+        /* --- DROPDOWN LOGIC --- */
         .dropdown {
             position: relative;
         }
 
-        /* 2. Hides the menu by default and styles the box */
         .dropdown-content {
-            display: none;
-            /* This hides the links initially */
+            display: none; /* Keeps links hidden until hover */
             position: absolute;
             background-color: white;
             min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-            z-index: 1;
+            z-index: 1001;
             top: 100%;
-            /* Places it directly under 'About' */
             left: 0;
             border-radius: 4px;
             border: 1px solid #eee;
             padding: 10px 0;
         }
 
-        /* 3. Forces the internal links to stack vertically */
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
-            display: block;
-            /* Stacks links top-to-bottom */
+            display: block; /* Stacks links vertically */
             font-size: 0.9rem;
         }
 
@@ -97,21 +91,51 @@
             color: var(--primary);
         }
 
-        /* 4. The Magic: Shows the menu only when hovering over the parent <li> */
+        /* Shows menu on hover */
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Optional: Adds a small arrow next to 'About' */
-        .dropdown>a::after {
+        /* Dropdown Arrow */
+        .dropdown > a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- END DROPDOWN CSS --- */
+        /* --- MOBILE RESPONSIVE RULES --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Logo on top, menu below */
+                padding: 1rem 5%;
+            }
 
-        /* Hero Section */
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .nav-links {
+                justify-content: center; /* Centers links on mobile */
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .nav-links li {
+                font-size: 0.85rem;
+            }
+
+            /* Adjust dropdown for touch screens */
+            .dropdown-content {
+                position: static; /* Pushes content down instead of floating */
+                box-shadow: none;
+                border: none;
+                background-color: var(--light-bg);
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* --- PAGE LAYOUT --- */
         .hero {
             padding: 80px 20px;
             text-align: center;
@@ -124,7 +148,7 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
             letter-spacing: -0.5px;
@@ -133,8 +157,6 @@
         .description {
             font-size: 1.2rem;
             color: #4b5563;
-            max-width: 700px;
-            margin: 0 auto;
         }
 
         footer {
