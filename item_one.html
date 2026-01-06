@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeurAeon Technologies | Home</title>
-        <style>
+    <style>
         :root {
             --primary: #008080;
             --dark: #1a1a1a;
@@ -42,7 +42,8 @@
         .nav-links {
             list-style: none;
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping on small screens */
+            flex-wrap: wrap;
+            /* Allows wrapping on small screens */
             gap: 2rem;
             margin: 0;
             padding: 0;
@@ -66,7 +67,8 @@
         }
 
         .dropdown-content {
-            display: none; /* Keeps links hidden until hover */
+            display: none;
+            /* Keeps links hidden until hover */
             position: absolute;
             background-color: white;
             min-width: 180px;
@@ -82,7 +84,8 @@
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
-            display: block; /* Stacks links vertically */
+            display: block;
+            /* Stacks links vertically */
             font-size: 0.9rem;
         }
 
@@ -97,7 +100,7 @@
         }
 
         /* Dropdown Arrow */
-        .dropdown > a::after {
+        .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
@@ -106,7 +109,8 @@
         /* --- MOBILE RESPONSIVE RULES --- */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column; /* Logo on top, menu below */
+                flex-direction: column;
+                /* Logo on top, menu below */
                 padding: 1rem 5%;
             }
 
@@ -115,7 +119,8 @@
             }
 
             .nav-links {
-                justify-content: center; /* Centers links on mobile */
+                justify-content: center;
+                /* Centers links on mobile */
                 gap: 1rem;
                 width: 100%;
             }
@@ -126,7 +131,8 @@
 
             /* Adjust dropdown for touch screens */
             .dropdown-content {
-                position: static; /* Pushes content down instead of floating */
+                position: static;
+                /* Pushes content down instead of floating */
                 box-shadow: none;
                 border: none;
                 background-color: var(--light-bg);
@@ -190,6 +196,7 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+    <h2>In Progress</h2>
 
     <footer>
         &copy; 2025 NeurAeon Technologies. All rights reserved.
