@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeurAeon Technologies | Home</title>
+    <title>Meet the Team | NeurAeon Technologies</title>
     <style>
         :root {
             --primary: #008080;
@@ -21,7 +20,7 @@
             background-color: white;
         }
 
-        /* Navigation Base */
+        /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -29,8 +28,8 @@
             padding: 1rem 10%;
             border-bottom: 1px solid #eee;
             background-color: white;
-            position: relative;
-            /* Essential for dropdown positioning */
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
@@ -59,36 +58,29 @@
             color: var(--primary);
         }
 
-        /* --- NEW DROPDOWN CSS (MISSING PART) --- */
-
-        /* 1. Makes the 'About' link a container for the menu */
+        /* --- Dropdown Logic --- */
         .dropdown {
             position: relative;
         }
 
-        /* 2. Hides the menu by default and styles the box */
         .dropdown-content {
             display: none;
-            /* This hides the links initially */
             position: absolute;
             background-color: white;
             min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
             z-index: 1;
             top: 100%;
-            /* Places it directly under 'About' */
             left: 0;
             border-radius: 4px;
             border: 1px solid #eee;
             padding: 10px 0;
         }
 
-        /* 3. Forces the internal links to stack vertically */
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
             display: block;
-            /* Stacks links top-to-bottom */
             font-size: 0.9rem;
         }
 
@@ -97,57 +89,113 @@
             color: var(--primary);
         }
 
-        /* 4. The Magic: Shows the menu only when hovering over the parent <li> */
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Optional: Adds a small arrow next to 'About' */
-        .dropdown>a::after {
+        .dropdown > a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- END DROPDOWN CSS --- */
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 20px;
+        /* --- Team Page Specific Styles --- */
+        .team-section {
+            padding: 60px 20px;
+            background-color: var(--light-bg);
             text-align: center;
-            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         h1 {
             font-size: 2.5rem;
             color: var(--dark);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 40px;
         }
 
-        .description {
-            font-size: 1.2rem;
-            color: #4b5563;
-            max-width: 700px;
-            margin: 0 auto;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 Columns on top */
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .team-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Centering the 3rd person on the bottom row */
+        .team-card.bottom-center {
+            grid-column: 1 / span 2; 
+            justify-self: center;
+            width: calc(50% - 15px); 
+        }
+
+        .team-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary);
+        }
+
+        .team-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .role {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            color: #6b7280;
+        }
+
+        /* Responsive: Stack vertically on mobile */
+        @media (max-width: 768px) {
+            .team-grid { grid-template-columns: 1fr; }
+            .team-card.bottom-center { 
+                grid-column: auto; 
+                width: 100%; 
+            }
+            nav {
+                padding: 1rem 5%;
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
 
         footer {
-            margin-top: 100px;
-            padding: 40px 20px;
-            border-top: 1px solid #eee;
+            padding: 40px;
             text-align: center;
             font-size: 0.9rem;
             color: #9ca3af;
+            background: white;
         }
     </style>
 </head>
-
 <body>
 
     <nav>
@@ -172,27 +220,27 @@
     <main class="team-section">
         <div class="container">
             <h1>The Minds Behind NeurAeon</h1>
-
+            
             <div class="team-grid">
                 <div class="team-card">
-                    <img src="jordan_headshot.jpg" alt="Team Member">
+                    <img src="jordan_headshot.jpg" alt="Jordan Schleicher">
                     <h3>Jordan Schleicher</h3>
                     <span class="role">Founder & Owner</span>
-                    <p class="bio">Insert bio here.</p>
+                    <p class="bio">Jordan leads the vision for NeurAeon, focusing on the intersection of neurobiology and emerging technology.</p>
                 </div>
 
                 <div class="team-card">
-                    <img src="brennan_headshot.jpg" alt="Team Member">
+                    <img src="brennan_headshot.jpg" alt="Brennan Waters">
                     <h3>Brennan Waters</h3>
                     <span class="role">Head of Technology</span>
-                    <p class="bio">Insert bio here.</p>
+                    <p class="bio">Brennan oversees technical architecture and the implementation of our recursive refinement engines.</p>
                 </div>
 
                 <div class="team-card bottom-center">
-                    <img src="matthew_headshot.jpg" alt="Team Member">
+                    <img src="matthew_headshot.jpg" alt="Matthew Dennis">
                     <h3>Matthew Dennis</h3>
                     <span class="role">Head of Public Relations</span>
-                    <p class="bio">Insert bio here.</p>
+                    <p class="bio">Matthew manages community outreach and communication, ensuring our mission is clear and accessible.</p>
                 </div>
             </div>
         </div>
@@ -203,5 +251,4 @@
     </footer>
 
 </body>
-
 </html>
