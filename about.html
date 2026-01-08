@@ -58,7 +58,9 @@
         }
 
         /* --- DROPDOWN --- */
-        .dropdown { position: relative; }
+        .dropdown {
+            position: relative;
+        }
 
         .dropdown-content {
             display: none;
@@ -80,9 +82,11 @@
             font-size: 0.9rem;
         }
 
-        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-        .dropdown > a::after {
+        .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
@@ -125,9 +129,27 @@
             margin-top: 1rem;
         }
 
-        .bar-bg { background: #e2e8f0; height: 8px; border-radius: 4px; margin: 8px 0; overflow: hidden; }
-        .bar-fill { background: var(--primary); width: 100%; height: 100%; } /* Updated to 100% for NRRE-2 Readiness */
-        .stat-text { font-weight: bold; font-size: 0.8rem; color: var(--primary); text-transform: uppercase; }
+        .bar-bg {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background: var(--primary);
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Updated to 100% for NRRE-2 Readiness */
+        .stat-text {
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
 
         /* --- HERO & CLOSING --- */
         .hero {
@@ -155,10 +177,27 @@
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
-            nav { flex-direction: column; padding: 1rem 5%; }
-            .nav-links { justify-content: center; width: 100%; margin-top: 1rem; }
-            .grid { grid-template-columns: 1fr; }
-            .dropdown-content { position: static; box-shadow: none; border: none; width: 100%; }
+            nav {
+                flex-direction: column;
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                justify-content: center;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                border: none;
+                width: 100%;
+            }
         }
 
         footer {
@@ -207,7 +246,9 @@
             <section class="card">
                 <div>
                     <h2>NRRE-2 Engine</h2>
-                    <p>The <strong>NeurAeon Recursive Refinement Engine v2 (NRRE-2)</strong> bridges the final gap between digital simulation and physical production. Deployed within live laboratory settings, it reconciles material discrepancies through high-fidelity recursive feedback loops.</p>
+                    <p>The <strong>NeurAeon Recursive Refinement Engine v2 (NRRE-2)</strong> bridges the final gap
+                        between digital simulation and physical production. Deployed within live laboratory settings, it
+                        reconciles material discrepancies through high-fidelity recursive feedback loops.</p>
                 </div>
                 <div class="feasibility-stat">
                     <span class="stat-text">Production Readiness: 100%</span>
@@ -223,8 +264,9 @@
             <section class="card">
                 <div>
                     <h2>APS-9 Architecture</h2>
-                    <p>Powered by the <strong>APS-9 prompt architecture</strong>, a systemic-recalibration engine that
-                        enforces GMP tolerances and biophysical limits globally.</p>
+                    <p>Powered by the <strong>APS-9 prompt architecture</strong>, The APS-9 is an extreme-level,
+                        modular, and constraint-embedded prompt engineering framework that serves as the "Instructional
+                        DNA" for the NeurAeon ecosystem.</p>
                     <div class="feasibility-stat">
                         <span class="stat-text">Digital Feasibility: 93%</span>
                         <div class="bar-bg">
@@ -254,4 +296,5 @@
     </footer>
 
 </body>
+
 </html>
