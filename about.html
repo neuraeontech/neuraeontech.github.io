@@ -88,7 +88,7 @@
             opacity: 0.5;
         }
 
-        /* --- ABOUT PAGE GRID & CARDS (RESTORED) --- */
+        /* --- ABOUT PAGE GRID & CARDS --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -126,7 +126,7 @@
         }
 
         .bar-bg { background: #e2e8f0; height: 8px; border-radius: 4px; margin: 8px 0; overflow: hidden; }
-        .bar-fill { background: var(--primary); width: 92%; height: 100%; }
+        .bar-fill { background: var(--primary); width: 100%; height: 100%; } /* Updated to 100% for NRRE-2 Readiness */
         .stat-text { font-weight: bold; font-size: 0.8rem; color: var(--primary); text-transform: uppercase; }
 
         /* --- HERO & CLOSING --- */
@@ -182,8 +182,8 @@
                 <a href="about.html" class="active">About</a>
                 <div class="dropdown-content">
                     <a href="about.html">Our Mission</a>
-                    <a href="item_one.html">Technology</a>
-                    <a href="item_two.html">Research</a>
+                    <a href="technology.html">Technology</a>
+                    <a href="research.html">Research</a>
                 </div>
             </li>
             <li><a href="meet_the_team.html">Meet The Team</a></li>
@@ -206,13 +206,17 @@
         <div class="grid">
             <section class="card">
                 <div>
-                    <h2>NRRE-1 Engine</h2>
-                    <p>The <strong>NeurAeon Recursive Refinement Engine (NRRE-1)</strong> is a proprietary
-                        platform-level IP system. It enhances neuroplasticity, synaptic efficiency, and higher-order
-                        pattern recognition.</p>
+                    <h2>NRRE-2 Engine</h2>
+                    <p>The <strong>NeurAeon Recursive Refinement Engine v2 (NRRE-2)</strong> bridges the final gap between digital simulation and physical production. Deployed within live laboratory settings, it reconciles material discrepancies through high-fidelity recursive feedback loops.</p>
+                </div>
+                <div class="feasibility-stat">
+                    <span class="stat-text">Production Readiness: 100%</span>
+                    <div class="bar-bg">
+                        <div class="bar-fill"></div>
+                    </div>
                 </div>
                 <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
-                    Scales entire classes of enhancement technologies with dramatically lower time and risk.
+                    A final gateway to Ultra High Net Worth Intellectual Property (UHNW-IP) at the $1.2B+ tier.
                 </p>
             </section>
 
@@ -222,9 +226,9 @@
                     <p>Powered by the <strong>APS-9 prompt architecture</strong>, a systemic-recalibration engine that
                         enforces GMP tolerances and biophysical limits globally.</p>
                     <div class="feasibility-stat">
-                        <span class="stat-text">92% Production Feasibility</span>
+                        <span class="stat-text">Digital Feasibility: 93%</span>
                         <div class="bar-bg">
-                            <div class="bar-fill"></div>
+                            <div style="background: var(--primary); width: 93%; height: 100%;"></div>
                         </div>
                     </div>
                 </div>
