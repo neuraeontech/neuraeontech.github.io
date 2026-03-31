@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeurAeon Technologies | Home</title>
-    s
-    <link rel="icon" type="image/png" href="610621126_913654351190665_2005466842488004948_n.jpg">
+    <title>Technology | NeurAeon Technologies</title>
+    
+    <link rel="icon" type="image/png" href="IMG_8634_1_70.jpeg">
 
     <style>
         :root {
@@ -14,6 +14,7 @@
             --dark: #1a1a1a;
             --light-bg: #f9fafb;
             --text: #374151;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -24,7 +25,7 @@
             background-color: white;
         }
 
-        /* --- NAVIGATION BASE --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -46,7 +47,6 @@
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            /* Allows wrapping on small screens */
             gap: 2rem;
             margin: 0;
             padding: 0;
@@ -65,13 +65,10 @@
         }
 
         /* --- DROPDOWN LOGIC --- */
-        .dropdown {
-            position: relative;
-        }
+        .dropdown { position: relative; }
 
         .dropdown-content {
             display: none;
-            /* Keeps links hidden until hover */
             position: absolute;
             background-color: white;
             min-width: 180px;
@@ -88,7 +85,6 @@
             color: var(--text);
             padding: 12px 20px;
             display: block;
-            /* Stacks links vertically */
             font-size: 0.9rem;
         }
 
@@ -97,79 +93,94 @@
             color: var(--primary);
         }
 
-        /* Shows menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* Dropdown Arrow */
         .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- MOBILE RESPONSIVE RULES --- */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                /* Logo on top, menu below */
-                padding: 1rem 5%;
-            }
-
-            .logo {
-                margin-bottom: 1rem;
-            }
-
-            .nav-links {
-                justify-content: center;
-                /* Centers links on mobile */
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .nav-links li {
-                font-size: 0.85rem;
-            }
-
-            /* Adjust dropdown for touch screens */
-            .dropdown-content {
-                position: static;
-                /* Pushes content down instead of floating */
-                box-shadow: none;
-                border: none;
-                background-color: var(--light-bg);
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        /* --- PAGE LAYOUT --- */
-        .hero {
+        /* --- TECHNOLOGY PAGE LAYOUT --- */
+        .hero-tech {
             padding: 80px 20px;
             text-align: center;
             background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         h1 {
             font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
         }
 
-        .description {
+        .tech-intro {
             font-size: 1.2rem;
+            max-width: 850px;
+            margin: 0 auto 40px auto;
             color: #4b5563;
         }
 
+        /* Core Frameworks Grid */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .framework-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary);
+            box-shadow: var(--card-shadow);
+            text-align: left;
+        }
+
+        .framework-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        /* Advantage Section */
+        .advantage-box {
+            margin-top: 60px;
+            padding: 50px;
+            background-color: var(--dark);
+            color: white;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .advantage-box h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .advantage-box p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 1rem 5%; }
+            .nav-links { justify-content: center; width: 100%; margin-top: 1rem; }
+            .framework-grid { grid-template-columns: 1fr; }
+            .dropdown-content { position: static; box-shadow: none; border: none; width: 100%; }
+            h1 { font-size: 2rem; }
+        }
+
         footer {
-            margin-top: 100px;
+            margin-top: 80px;
             padding: 40px 20px;
             border-top: 1px solid #eee;
             text-align: center;
@@ -191,7 +202,7 @@
                 <a href="about.html">About</a>
                 <div class="dropdown-content">
                     <a href="about.html">Our Mission</a>
-                    <a href="item_one.html">Technology</a>
+                    <a href="item_one.html" style="color: var(--primary); font-weight: bold;">Technology</a>
                     <a href="item_two.html">Research</a>
                 </div>
             </li>
@@ -199,7 +210,54 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <h2>In Progress</h2>
+
+    <header class="hero-tech">
+        <div class="container">
+            <h1>The NeurAeon Generative Architecture</h1>
+            <p class="tech-intro">
+                NeurAeon Technologies has transitioned from linear drug discovery to a <strong>simulation-first, agentic orchestration ecosystem</strong>. 
+                By utilizing our proprietary Architectural Prompt Systems (APS-9) and the NeurAeon Recursive Refinement Engine (NRRE-4), we transform 
+                pharmaceutical ideation into a self-correcting, digitally-vetted discipline.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 style="text-align: center; color: var(--dark); margin-top: 0;">Core Technical Frameworks</h2>
+        <div class="framework-grid">
+            
+            <div class="framework-card">
+                <h3>APS-9 (Architectural Prompt Systems)</h3>
+                <p>A high-order generative engine that utilizes complex prompt heuristics to design candidate Active Pharmaceutical Ingredients (APIs) specifically targeted for synaptic plasticity.</p>
+            </div>
+
+            <div class="framework-card">
+                <h3>NRRE-4 (Recursive Refinement Engine)</h3>
+                <p>A meta-analytical scaffold that ensures every molecular hypothesis undergoes deep-layered reasoning and structured evaluation for maximal safety and efficacy.</p>
+            </div>
+
+            <div class="framework-card">
+                <h3>OpenClaw Orchestration</h3>
+                <p>An agentic environment where autonomous AI "lab teams"—including virtual toxicologists and thermodynamicists—interrogate synthesis pathways 24/7.</p>
+            </div>
+
+            <div class="framework-card">
+                <h3>DIP (Discrepancy Iteration Protocol)</h3>
+                <p>A six-layer "detect-to-correct" loop that identifies mechanistic inconsistencies and reaction hazards before any physical resources are committed.</p>
+            </div>
+
+        </div>
+
+        <section class="advantage-box">
+            <h2>The "Simulation-First" Advantage</h2>
+            <p>
+                Our technology functions as a <strong>Synthetic Intelligence Laboratory</strong>. Rather than relying on traditional trial-and-error, we execute thousands of virtual parameter sweeps—modeling temperature windows, solvent polarity, and kinetic stability—to identify the "Convergence Zone" for every compound.
+            </p>
+            <p>
+                This probabilistically compresses early-stage synthetic risk, ensuring that our final output is not just a theory, but a laboratory-ready procedural architecture engineered to survive real-world manufacturing.
+            </p>
+        </section>
+    </main>
 
     <footer>
         &copy; 2025 NeurAeon Technologies. All rights reserved.
