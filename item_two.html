@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeurAeon Technologies | Home</title>
-    <link rel="icon" type="image/png" href="610621126_913654351190665_2005466842488004948_n.jpg">
+    <title>Research | NeurAeon Technologies</title>
+    
+    <link rel="icon" type="image/png" href="IMG_8634_1_70.jpeg">
 
     <style>
         :root {
@@ -13,6 +14,7 @@
             --dark: #1a1a1a;
             --light-bg: #f9fafb;
             --text: #374151;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -23,7 +25,7 @@
             background-color: white;
         }
 
-        /* --- NAVIGATION BASE --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -44,7 +46,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping on small screens */
+            flex-wrap: wrap;
             gap: 2rem;
             margin: 0;
             padding: 0;
@@ -63,12 +65,10 @@
         }
 
         /* --- DROPDOWN LOGIC --- */
-        .dropdown {
-            position: relative;
-        }
+        .dropdown { position: relative; }
 
         .dropdown-content {
-            display: none; /* Keeps links hidden until hover */
+            display: none;
             position: absolute;
             background-color: white;
             min-width: 180px;
@@ -84,7 +84,7 @@
         .dropdown-content a {
             color: var(--text);
             padding: 12px 20px;
-            display: block; /* Stacks links vertically */
+            display: block;
             font-size: 0.9rem;
         }
 
@@ -93,76 +93,118 @@
             color: var(--primary);
         }
 
-        /* Shows menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* Dropdown Arrow */
-        .dropdown > a::after {
+        .dropdown>a::after {
             content: ' ▼';
             font-size: 0.7rem;
             opacity: 0.5;
         }
 
-        /* --- MOBILE RESPONSIVE RULES --- */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column; /* Logo on top, menu below */
-                padding: 1rem 5%;
-            }
-
-            .logo {
-                margin-bottom: 1rem;
-            }
-
-            .nav-links {
-                justify-content: center; /* Centers links on mobile */
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .nav-links li {
-                font-size: 0.85rem;
-            }
-
-            /* Adjust dropdown for touch screens */
-            .dropdown-content {
-                position: static; /* Pushes content down instead of floating */
-                box-shadow: none;
-                border: none;
-                background-color: var(--light-bg);
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        /* --- PAGE LAYOUT --- */
-        .hero {
+        /* --- RESEARCH PAGE LAYOUT --- */
+        .hero-research {
             padding: 80px 20px;
             text-align: center;
             background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         h1 {
             font-size: 2.8rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
         }
 
-        .description {
+        .research-intro {
             font-size: 1.2rem;
+            max-width: 850px;
+            margin: 0 auto 40px auto;
             color: #4b5563;
         }
 
+        /* Logic Boxes */
+        .logic-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 6px solid var(--primary);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .logic-card h2 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+        .logic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .logic-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .logic-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Deliverables Grid */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .d-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+
+        .d-card h4 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Philosophy Box */
+        .philosophy {
+            padding: 40px;
+            background-color: #f3f4f6;
+            border-radius: 12px;
+            font-style: italic;
+            text-align: center;
+            border: 1px dashed var(--primary);
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 1rem 5%; }
+            .nav-links { justify-content: center; width: 100%; margin-top: 1rem; }
+            .deliverables-grid { grid-template-columns: 1fr; }
+            .dropdown-content { position: static; box-shadow: none; border: none; width: 100%; }
+            h1 { font-size: 2.2rem; }
+        }
+
         footer {
-            margin-top: 100px;
+            margin-top: 80px;
             padding: 40px 20px;
             border-top: 1px solid #eee;
             text-align: center;
@@ -185,14 +227,63 @@
                 <div class="dropdown-content">
                     <a href="about.html">Our Mission</a>
                     <a href="item_one.html">Technology</a>
-                    <a href="item_two.html">Research</a>
+                    <a href="item_two.html" style="color: var(--primary); font-weight: bold;">Research</a>
                 </div>
             </li>
             <li><a href="meet_the_team.html">Meet The Team</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <h2>In Progress</h2>
+
+    <header class="hero-research">
+        <div class="container">
+            <h1>Neural Intelligence Research</h1>
+            <p class="research-intro">
+                Our research paradigm shifts pharmaceutical development from a linear experimental process into a <strong>self-correcting, simulation-driven optimization engine</strong>.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="logic-card">
+            <h2>The NRRE-4 Logic</h2>
+            <p>By deploying OpenClaw as an autonomous methodological auditor, we stress-test every proposed synthetic route against real-world laboratory constraints—including temperature gradients, solvent systems, and equipment tolerances—before any physical resources are committed.</p>
+        </section>
+
+        <section class="logic-card">
+            <h2>The Discrepancy Iteration Protocol (DIP)</h2>
+            <p>At the heart of our research is a closed-loop refinement cycle designed to identify, rank, and compress chemical and analytical discrepancies.</p>
+            <ul class="logic-list">
+                <li><strong>Recursive Probabilistic Loops:</strong> Every projected failure mode triggers an automated corrective iteration.</li>
+                <li><strong>Severity-Tiered Indexing:</strong> Discrepancies are classified from Tier 1 (Cosmetic) to Tier 4 (Mechanistic Implausibility) to ensure safety.</li>
+                <li><strong>Parameter Convergence:</strong> Virtual sweeps identify "Convergence Zones" where conditions are chemically valid and executable.</li>
+            </ul>
+        </section>
+
+        <h2 style="text-align: center;">Translational Deliverables</h2>
+        <div class="deliverables-grid">
+            <div class="d-card">
+                <h4>Ranked Route Dossiers</h4>
+                <p>The top synthetic pathways supported by full mechanistic rationales.</p>
+            </div>
+            <div class="d-card">
+                <h4>Impurity Risk Trees</h4>
+                <p>Predictive maps of byproducts and their likely concentration levels.</p>
+            </div>
+            <div class="d-card">
+                <h4>Analytical Validation Matrices</h4>
+                <p>Defined testing methods (HPLC, LC-MS) required for detection.</p>
+            </div>
+        </div>
+
+        <section class="philosophy">
+            <h3>Bounded Research Philosophy</h3>
+            <p>"Every AI-driven insight is governed by mandatory human scientific validation gates, ensuring that the final protocol reflects the statistically reinforced product of multiple simulated experimental universes."</p>
+        </section>
+
+    </main>
+
     <footer>
         &copy; 2025 NeurAeon Technologies. All rights reserved.
     </footer>
