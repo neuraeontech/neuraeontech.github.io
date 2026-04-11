@@ -103,7 +103,7 @@
             opacity: 0.5;
         }
 
-        /* --- TEAM GRID STYLES (RE-ADDED) --- */
+        /* --- TEAM GRID STYLES --- */
         .team-section {
             padding: 60px 20px;
             background-color: var(--light-bg);
@@ -111,7 +111,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px; /* Widened slightly to accommodate 2x2 cards better */
             margin: 0 auto;
         }
 
@@ -123,8 +123,8 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr); /* Forces 2 columns */
+            gap: 40px; /* Increased gap for a cleaner professional look */
             margin-top: 40px;
         }
 
@@ -133,32 +133,29 @@
             padding: 40px 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .team-card:hover {
             transform: translateY(-5px);
-        }
-
-        /* Centering the 3rd person on the bottom row */
-        .team-card.bottom-center {
-            grid-column: 1 / span 2;
-            justify-self: center;
-            width: calc(50% - 15px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .team-card img {
-            width: 140px;
-            height: 140px;
+            width: 160px; /* Slightly larger photos */
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border: 3px solid var(--primary);
         }
 
         .team-card h3 {
             margin: 10px 0 5px 0;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--dark);
         }
 
@@ -168,17 +165,26 @@
             font-weight: 600;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
         }
 
         .bio {
             font-size: 0.95rem;
             color: #6b7280;
+            text-align: center;
+            max-width: 450px;
         }
 
         /* --- MOBILE RESPONSIVE RULES --- */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: 1fr; /* Stacks to 1 column on smaller tablets/phones */
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             nav {
                 flex-direction: column;
                 padding: 1rem 5%;
@@ -191,15 +197,6 @@
             .nav-links {
                 justify-content: center;
                 gap: 1rem;
-                width: 100%;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .team-card.bottom-center {
-                grid-column: auto;
                 width: 100%;
             }
 
@@ -252,33 +249,28 @@
                     <img src="jordan_headshot.jpg" alt="Jordan Schleicher">
                     <h3>Jordan Schleicher</h3>
                     <span class="role">Founder & Owner</span>
-                    <p class="bio">As the Founder of NeurAeon Technologies, Jordan Schleicher directs the end-to-end
-                        research and development of the company’s next-generation neural enhancement candidates. He is
-                        the primary architect behind the implementation of the NeurAeon Recursive Refinement Engine
-                        (NRRE-4), a proprietary system engineered to eliminate the "trial-and-error" bottlenecks
-                        inherent in traditional R&D. His leadership is dedicated to ensuring that every technical
-                        blueprint produced by the firm meets the highest global standards of technical feasibility and
-                        laboratory precision.
-                        .</p>
+                    <p class="bio">Jordan Schleicher directs the end-to-end R&D of NeurAeon’s next-generation neural enhancement candidates. He is the primary architect behind the implementation of the NRRE-4 system, engineered to eliminate traditional R&D bottlenecks through laboratory precision and global standards.</p>
                 </div>
 
                 <div class="team-card">
                     <img src="brennan_headshot.jpg" alt="Brennan Waters">
                     <h3>Brennan Waters</h3>
                     <span class="role">Head of Technology</span>
-                    <p class="bio">KU Information Technology graduate with a dual background in Applied Science and a
-                        passion for building high-impact digital solutions. An experienced developer proficient in
-                        multiple languages, with a portfolio featuring custom software, responsive websites, and
-                        intelligent chatbots, specializes in turning complex technical requirements into efficient,
-                        user-ready applications.</p>
+                    <p class="bio">A KU Information Technology graduate with a background in Applied Science, Brennan specializes in turning complex technical requirements into user-ready applications. His portfolio includes custom software, responsive websites, and intelligent chatbots for high-impact digital solutions.</p>
                 </div>
 
-                <div class="team-card bottom-center">
+                <div class="team-card">
+                    <img src="IMG_0423.jpeg" alt="Kir Hsu">
+                    <h3>Kir Hsu</h3>
+                    <span class="role">Head of Finance</span>
+                    <p class="bio">With a Master’s in Finance and over a decade of experience across investment, commercial, and central banking, Kir leads financial strategy and fundraising. He specializes in capital markets and corporate finance, aligning company growth with long-term scalability.</p>
+                </div>
+
+                <div class="team-card">
                     <img src="matthew_headshot.jpg" alt="Matthew Dennis">
                     <h3>Matthew Dennis</h3>
                     <span class="role">Head of Public Relations</span>
-                    <p class="bio">Matthew manages community outreach and communication, ensuring our mission is clear
-                        and accessible.</p>
+                    <p class="bio">Matthew manages community outreach and strategic communication for NeurAeon. His focus is on ensuring the company's mission and complex neurotechnological developments remain clear, accessible, and transparent to the public.</p>
                 </div>
             </div>
         </div>
